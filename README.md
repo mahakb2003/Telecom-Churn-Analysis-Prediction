@@ -3,7 +3,7 @@
 
 ---
 
-## 📊 Project Summary
+ 📊 Project Summary
 
 This project analyzes telecom customer data to **identify churn patterns, understand customer behavior, and predict future churners** using an end-to-end analytics pipeline built with **SQL Server, Power BI, and Python Machine Learning**.
 
@@ -11,9 +11,9 @@ The solution helps telecom businesses understand **why customers leave and which
 
 ---
 
-## 📸 Dashboard Preview
+ 📸 Dashboard Preview
 
-### Executive Summary Dashboard
+ Executive Summary Dashboard
 
 [View Full Image](./Summary.png)
 
@@ -21,7 +21,7 @@ The solution helps telecom businesses understand **why customers leave and which
 
 ---
 
-### Churn Analysis Dashboard
+ Churn Analysis Dashboard
 
 [View Full Image](./Churn%20Analysis%20Dashboard.png)
 
@@ -29,7 +29,7 @@ The solution helps telecom businesses understand **why customers leave and which
 
 ---
 
-## 🎯 Business Objective
+ 🎯 Business Objective
 
 Customer churn is a major challenge in the telecom industry, where retaining existing customers is significantly cheaper than acquiring new ones.
 
@@ -44,18 +44,18 @@ The insights help businesses design **data-driven retention campaigns and improv
 
 ---
 
-## 📊 Power BI Dashboard Insights
+ 📊 Power BI Dashboard Insights
 
 The Power BI dashboard provides a comprehensive view of customer churn across **demographics, contracts, services, payment methods, and geography.**
 
-### Key Metrics
+ Key Metrics
 
 - Total Customers  
 - New Joiners  
 - Total Churn  
 - Churn Rate  
 
-### Major Business Insights
+ Major Business Insights
 
 - **Month-to-month contract customers have the highest churn rate**, indicating lower commitment levels.
 - Customers using **Electronic Check payment methods churn significantly more** than those using automatic payments.
@@ -66,7 +66,7 @@ The Power BI dashboard provides a comprehensive view of customer churn across **
 
 ---
 
-## 🧱 Technology Stack
+🧱 Technology Stack
 
 | Layer | Tools Used |
 |------|-------------|
@@ -79,33 +79,33 @@ The Power BI dashboard provides a comprehensive view of customer churn across **
 
 ---
 
-## ⚙️ Project Workflow
+⚙️ Project Workflow
 
 The project follows an **end-to-end data analytics pipeline**.
 
-### 1️⃣ Data Extraction
+ 1️⃣ Data Extraction
 - Imported telecom customer data from **CSV files**
 
-### 2️⃣ Data Cleaning & Transformation
+2️⃣ Data Cleaning & Transformation
 - Handled missing values
 - Standardized categorical variables
 - Structured the dataset for analysis
 
-### 3️⃣ Data Modeling
+ 3️⃣ Data Modeling
 - Created production tables in SQL Server
 - Built optimized **SQL views for Power BI**
 
-### 4️⃣ Data Visualization
+ 4️⃣ Data Visualization
 - Developed **interactive Power BI dashboards**
 - Created calculated columns and measures using **DAX**
 
-### 5️⃣ Machine Learning Prediction
+ 5️⃣ Machine Learning Prediction
 - Built a **Random Forest classification model**
 - Predicted customers likely to churn
 
 ---
 
-## 🔄 ETL Pipeline (SQL Server)
+ 🔄 ETL Pipeline (SQL Server)
 
 The ETL process converts raw telecom data into structured analytical datasets.
 
@@ -119,18 +119,18 @@ The ETL process converts raw telecom data into structured analytical datasets.
 
 ---
 
-## 📊 Power BI Data Modeling
+ 📊 Power BI Data Modeling
 
 Additional transformations were performed inside Power BI.
 
-### Calculated Columns
+ Calculated Columns
 
 - Churn Status
 - Age Group Segmentation
 - Tenure Group
 - Monthly Charge Range
 
-### DAX Measures
+ DAX Measures
 
 ```DAX
 Total Customers = COUNT(prod_Churn[Customer_ID])
@@ -145,13 +145,13 @@ Total Churn = SUM(prod_Churn[Churn Status])
 
 Churn Rate = [Total Churn] / [Total Customers]
 
-## 🤖 Machine Learning – Churn Prediction
+ 🤖 Machine Learning – Churn Prediction
 
 A **Random Forest Classifier** was used to predict customers who are likely to churn based on their demographic, service usage, and account information.
 
 ---
 
-### Model Development
+ Model Development
 
 The machine learning pipeline included the following steps:
 
@@ -166,11 +166,11 @@ The machine learning pipeline included the following steps:
 
 ---
 
-## 📡 Predicting Future Churners
+📡 Predicting Future Churners
 
 The trained model was then used to predict churn probability for **new customers**.
 
-### Prediction Process
+Prediction Process
 
 1. Loaded **new customer dataset**.
 2. Applied the **same preprocessing and encoding steps** used during training.
@@ -181,7 +181,7 @@ This allows businesses to **identify high-risk customers early and take preventi
 
 ---
 
-## 📈 Business Impact
+📈 Business Impact
 
 This project enables telecom companies to:
 
@@ -193,14 +193,14 @@ This project enables telecom companies to:
 
 ---
 
-## ✅ Final Outcome
+✅ Final Outcome
 
 - Built an **end-to-end SQL + Power BI + Machine Learning analytics pipeline**
 - Developed an **interactive Power BI dashboard for churn monitoring**
 - Implemented a **Random Forest model to predict future churners**
 - Generated **actionable business insights to improve customer retention strategies**
 
-## Author
+ Author
 
 - Mahak Bisht
 - mahak.bisht2003@gmail.com

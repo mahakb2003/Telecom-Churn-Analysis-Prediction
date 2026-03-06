@@ -202,6 +202,6 @@ This project enables telecom companies to:
 
 ## Author
 
--Mahak Bisht
--mahak.bisht2003@gmail.com
--8750508853
+- Mahak Bisht
+- mahak.bisht2003@gmail.com
+- 8750508853

@@ -200,7 +200,8 @@ This project enables telecom companies to:
 - Implemented a **Random Forest model to predict future churners**
 - Generated **actionable business insights to improve customer retention strategies**
 
-Author
-Mahak Bisht
-mahak.bisht2003@gmail.com
-8750508853
+## Author
+
+-Mahak Bisht
+-mahak.bisht2003@gmail.com
+-8750508853

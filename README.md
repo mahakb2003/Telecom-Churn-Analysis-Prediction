@@ -1,154 +1,206 @@
-# Telecom Customer Churn Analysis & Prediction (SQL + Power BI + ML)
-
-## 🔍 Project Overview
-This end-to-end project aims to help a telecom company (e.g., **Airtel**) identify, analyze, and predict **customer churn**. 
-
-By integrating **SQL**, **Power BI**, and **Python (Random Forest)**, we have created a business-intelligent solution to:
-- Understand why customers leave
-- Segment high-risk customer groups
-- Predict future churners
-- Recommend actionable strategies to reduce churn and increase customer retention
+# Telecom Customer Churn Analysis & Prediction
+**SQL | Power BI | Machine Learning**
 
 ---
 
-## 💼 Business Objective
-In the telecom industry, retaining existing customers is more cost-effective than acquiring new ones. This project enables decision-makers to:
-- **Visualize key churn metrics** across customer segments
-- **Predict at-risk customers** using machine learning
-- **Design targeted retention campaigns** (by contract type, tenure, demographics, etc.)
+## 📊 Project Summary
+
+This project analyzes telecom customer data to **identify churn patterns, understand customer behavior, and predict future churners** using an end-to-end analytics pipeline built with **SQL Server, Power BI, and Python Machine Learning**.
+
+The solution helps telecom businesses understand **why customers leave and which customers are likely to churn**, enabling targeted retention strategies.
 
 ---
 
-## 🧱 Tech Stack
-| Layer          | Tools Used                                |
-|----------------|---------------------------------------------|
-| Data Storage   | Microsoft SQL Server                       |
-| Data Modeling  | SQL Views, Power BI Query Editor           |
-| Data Analysis  | SQL Queries, Power BI DAX Measures         |
-| Visualization  | Power BI Dashboards                        |
-| ML Model       | Python (Random Forest Classifier)          |
-| Deployment     | Predictions exported as CSV / SQL Table    |
+## 📸 Dashboard Preview
+
+### Executive Summary Dashboard
+
+[View Full Image](./Summary.png)
+
+![Executive Dashboard](./Summary.png)
 
 ---
 
-## 🔧 Step 1 – ETL Process in SQL Server
+### Churn Analysis Dashboard
 
-1. **Created Database:**
+[View Full Image](./Churn%20Analysis%20Dashboard.png)
 
-2. **Imported Raw CSV File**
-
-3. **Data Cleaning & Null Handling**
-
-4. **Transform & Load into Production Table**
-
-
-5. **Created Views for Power BI**
-
+![Churn Dashboard](./Churn%20Analysis%20Dashboard.png)
 
 ---
 
-## 📊 Step 2 – Power BI Transformations
+## 🎯 Business Objective
 
-- Added calculated columns:
-  - **Churn Status**: 1 if churned, else 0
-  - **Monthly Charge Range**: Bins of charges
-  - **Age Group & Tenure Group**: Segmented by logic (e.g., `<20`, `20-35`, etc.)
+Customer churn is a major challenge in the telecom industry, where retaining existing customers is significantly cheaper than acquiring new ones.
 
-- Created reference tables:
-  - `mapping_AgeGrp`, `mapping_TenureGrp`, `prod_Services` (using unpivot)
+This project helps telecom companies:
+
+- Identify **customers at high risk of churn**
+- Understand **factors driving churn**
+- Monitor churn trends through **interactive dashboards**
+- Predict **future churners using machine learning**
+
+The insights help businesses design **data-driven retention campaigns and improve customer loyalty.**
 
 ---
 
-## 🧮 Step 3 – Power BI Measures
-DAX
+## 📊 Power BI Dashboard Insights
+
+The Power BI dashboard provides a comprehensive view of customer churn across **demographics, contracts, services, payment methods, and geography.**
+
+### Key Metrics
+
+- Total Customers  
+- New Joiners  
+- Total Churn  
+- Churn Rate  
+
+### Major Business Insights
+
+- **Month-to-month contract customers have the highest churn rate**, indicating lower commitment levels.
+- Customers using **Electronic Check payment methods churn significantly more** than those using automatic payments.
+- **Customers with short tenure (0–12 months)** show the highest churn probability.
+- **Fiber optic internet users have relatively higher churn rates**, suggesting possible pricing or service concerns.
+- Customers without **additional services (streaming or security)** are more likely to churn.
+- Certain **regions consistently show higher churn**, which may indicate service or infrastructure issues.
+
+---
+
+## 🧱 Technology Stack
+
+| Layer | Tools Used |
+|------|-------------|
+| Data Storage | Microsoft SQL Server |
+| Data Processing | SQL Queries, Views |
+| Visualization | Power BI |
+| Data Analysis | DAX Measures |
+| Machine Learning | Python (Random Forest Classifier) |
+| Development Tools | Jupyter Notebook, VS Code |
+
+---
+
+## ⚙️ Project Workflow
+
+The project follows an **end-to-end data analytics pipeline**.
+
+### 1️⃣ Data Extraction
+- Imported telecom customer data from **CSV files**
+
+### 2️⃣ Data Cleaning & Transformation
+- Handled missing values
+- Standardized categorical variables
+- Structured the dataset for analysis
+
+### 3️⃣ Data Modeling
+- Created production tables in SQL Server
+- Built optimized **SQL views for Power BI**
+
+### 4️⃣ Data Visualization
+- Developed **interactive Power BI dashboards**
+- Created calculated columns and measures using **DAX**
+
+### 5️⃣ Machine Learning Prediction
+- Built a **Random Forest classification model**
+- Predicted customers likely to churn
+
+---
+
+## 🔄 ETL Pipeline (SQL Server)
+
+The ETL process converts raw telecom data into structured analytical datasets.
+
+**Steps performed:**
+
+1. Created database in SQL Server  
+2. Imported raw **Customer_Data.csv**  
+3. Cleaned and transformed data  
+4. Loaded processed data into production tables  
+5. Created SQL views optimized for Power BI reporting  
+
+---
+
+## 📊 Power BI Data Modeling
+
+Additional transformations were performed inside Power BI.
+
+### Calculated Columns
+
+- Churn Status
+- Age Group Segmentation
+- Tenure Group
+- Monthly Charge Range
+
+### DAX Measures
+
+```DAX
 Total Customers = COUNT(prod_Churn[Customer_ID])
-New Joiners = CALCULATE(COUNT(prod_Churn[Customer_ID]), prod_Churn[Customer_Status] = "Joined")
+
+New Joiners =
+CALCULATE(
+COUNT(prod_Churn[Customer_ID]),
+prod_Churn[Customer_Status] = "Joined"
+)
+```
 Total Churn = SUM(prod_Churn[Churn Status])
+
 Churn Rate = [Total Churn] / [Total Customers]
 
+## 🤖 Machine Learning – Churn Prediction
+
+A **Random Forest Classifier** was used to predict customers who are likely to churn based on their demographic, service usage, and account information.
 
 ---
 
-## 📈 Step 4 – Power BI Dashboards
+### Model Development
 
-### 📌 Summary Page
-- **Top Cards:** Total Customers, New Joiners, Total Churn, Churn Rate
-- **Demographics:** Gender, Age Group vs Churn
-- **Accounts:** Contract Type, Payment Method, Tenure Group
-- **Geographic:** Top 5 States with Highest Churn
-- **Service Usage:** Internet Type & Streaming Service vs Churn
-- **Churn Distribution:** Category & Tooltip: Reason
+The machine learning pipeline included the following steps:
 
-### 🧠 Churn Prediction Page
-- Load CSV from prediction model output
-- Charts by: Age, Gender, Marital Status, State, Contract, Payment Method
-- Grid View: Customer ID, Revenue, Tenure, etc.
+1. **Loaded churn dataset** from the SQL view.
+2. **Encoded categorical variables** using `LabelEncoder`.
+3. **Removed irrelevant columns** such as `Customer_ID`.
+4. **Split the dataset** into training (80%) and testing (20%) sets.
+5. **Trained a Random Forest classification model**.
+6. **Evaluated the model performance** using:
+   - Confusion Matrix
+   - Classification Report
 
 ---
 
-## 🤖 Step 5 – Machine Learning Churn Prediction
+## 📡 Predicting Future Churners
 
-### 🧰 Tools
-- Jupyter Notebook (via Anaconda)
-- `RandomForestClassifier` from `sklearn`
+The trained model was then used to predict churn probability for **new customers**.
 
-### 🔬 Process
-1. Loaded data from `vw_ChurnData` view using Excel
-2. Encoded categorical columns using LabelEncoder
-3. Dropped irrelevant columns like `Customer_ID`, `Churn_Reason`
-4. Trained model using 80-20 train-test split
-5. Evaluated using confusion matrix and classification report
-6. Feature importance visualized to interpret key drivers
+### Prediction Process
 
-### 📡 Predict Future Churners
-- Loaded `vw_JoinData`
-- Transformed using saved encoders
-- Ran `.predict()`
-- Filtered only churners → Exported to CSV (`Predictions.csv`)
+1. Loaded **new customer dataset**.
+2. Applied the **same preprocessing and encoding steps** used during training.
+3. Generated **churn predictions using the trained model**.
+4. Exported predicted churn results to a **CSV file** for visualization in Power BI.
+
+This allows businesses to **identify high-risk customers early and take preventive retention actions**.
 
 ---
 
-## 💼 Business Impact
-This solution equips telecom stakeholders with:
-- **Descriptive analytics**: Who churned, from where, and why
-- **Diagnostic insights**: High-risk segments (e.g., Prepaid users, older age groups)
-- **Predictive power**: Identify new customers likely to churn
-- **Strategic levers**: Use actionable dashboards to plan:
-  - Loyalty campaigns
-  - Contract upgrades
-  - Personalized offers
+## 📈 Business Impact
 
----
+This project enables telecom companies to:
 
-## 🗂️ File Structure
-
-📁 Churn-Analysis-Project
-│
-├── 📂 SQL Scripts
-│   └── churn_etl.sql
-│
-├── 📂 PowerBI
-│   └── Churn_Dashboard.pbix
-│
-├── 📂 ML_Model
-│   ├── churn_predictor.ipynb
-│   └── Predictions.csv
-│
-├── 📂 Data
-│   ├── Customer_Data.csv
-│   └── Prediction_Data.xlsx
-│
-└── README.md
-
+- Understand **customer churn patterns**
+- Identify **high-risk customer segments**
+- Monitor churn trends through **interactive dashboards**
+- Predict churn using **machine learning models**
+- Launch **targeted retention campaigns**
 
 ---
 
 ## ✅ Final Outcome
-✅ Comprehensive Dashboard showing real-time churn trends  
-✅ Machine Learning model that predicts new churners with accuracy  
-✅ Executive insights to design **targeted retention campaigns**  
-✅ Improved **customer satisfaction** and **business profitability**
 
----
+- Built an **end-to-end SQL + Power BI + Machine Learning analytics pipeline**
+- Developed an **interactive Power BI dashboard for churn monitoring**
+- Implemented a **Random Forest model to predict future churners**
+- Generated **actionable business insights to improve customer retention strategies**
 
-**This project showcases how business analytics, data engineering, and machine learning can be combined to solve a real-world business problem and drive retention strategy in a competitive industry.**
+Author
+Mahak Bisht
+mahak.bisht2003@gmail.com
+8750508853
